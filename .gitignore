@@ -3,3 +3,4 @@ obj/
 .vs/
 *.user
 reporte-prueba.svg
+wwwroot/reportes/

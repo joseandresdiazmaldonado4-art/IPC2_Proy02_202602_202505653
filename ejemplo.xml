@@ -1,0 +1,12 @@
+<config>
+  <listaCategorias>
+    <categoria>Ciencia</categoria>
+    <categoria padre="Ciencia">Física</categoria>
+    <categoria>Literatura</categoria>
+  </listaCategorias>
+  <listaLibros>
+    <libro><ISBN>978001</ISBN><titulo>Fundamentos de física</titulo><autor>Ana López</autor><categoria>Física</categoria></libro>
+    <libro><ISBN>978003</ISBN><titulo>Relatos breves</titulo><autor>Luis Pérez</autor><categoria>Literatura</categoria></libro>
+    <libro><ISBN>978002</ISBN><titulo>Mecánica clásica</titulo><autor>Marta Díaz</autor><categoria>Física</categoria></libro>
+  </listaLibros>
+</config>

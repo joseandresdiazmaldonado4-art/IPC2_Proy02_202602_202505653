@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Biblioteca · IPC2</title><link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+<header><div><span class="marca">BIBLIOTECA</span><h1>Catálogo jerárquico</h1><p>Administra categorías y libros mediante estructuras dinámicas.</p></div><button class="peligro" onclick="reiniciar()">Reiniciar catálogo</button></header>
+<nav><button onclick="mostrar('catalogo')">Catálogo</button><button onclick="mostrar('carga')">Carga XML</button><button onclick="mostrar('reportes')">Reportes</button><button onclick="mostrar('ayuda')">Ayuda</button></nav>
+<main>
+  <section id="catalogo">
+    <div class="rejilla">
+      <article><h2>Nueva categoría</h2><form id="formularioCategoria"><label>Nombre<input name="nombre" required></label><label>Categoría padre<input name="padre" placeholder="Vacío para categoría raíz"></label><button>Registrar categoría</button></form></article>
+      <article><h2>Nuevo libro</h2><form id="formularioLibro"><label>ISBN<input name="isbn" required></label><label>Título<input name="titulo" required></label><label>Autor<input name="autor" required></label><label>Categoría<input name="categoria" required></label><button>Registrar libro</button></form></article>
+      <article><h2>Buscar y eliminar</h2><form id="formularioBusqueda"><label>ISBN<input id="isbnBusqueda" required></label><div class="acciones"><button>Buscar</button><button type="button" class="peligro" onclick="eliminarLibro()">Eliminar</button></div></form><div id="resultadoBusqueda" class="resultado"></div></article>
+    </div>
+    <article class="ancho"><div class="titulo-fila"><h2>Contenido del catálogo</h2><button onclick="cargarCatalogo()">Actualizar</button></div><div id="arbol" class="arbol"></div></article>
+  </section>
+  <section id="carga" hidden><article><h2>Inicialización mediante XML</h2><p>Las categorías usan su contenido como nombre y pueden indicar un atributo <code>padre</code>. La carga conserva los datos existentes.</p><form id="formularioCarga"><label>Archivo XML<input type="file" name="archivo" accept=".xml,text/xml" required></label><label class="casilla"><input type="checkbox" name="reiniciar" value="si"> Vaciar el catálogo antes de cargar</label><button>Procesar archivo</button></form><pre class="ejemplo">&lt;config&gt;
+  &lt;listaCategorias&gt;
+    &lt;categoria&gt;Ciencia&lt;/categoria&gt;
+    &lt;categoria padre="Ciencia"&gt;Física&lt;/categoria&gt;
+  &lt;/listaCategorias&gt;
+  &lt;listaLibros&gt;
+    &lt;libro&gt;&lt;ISBN&gt;978001&lt;/ISBN&gt;&lt;titulo&gt;Fundamentos&lt;/titulo&gt;&lt;autor&gt;Ana López&lt;/autor&gt;&lt;categoria&gt;Física&lt;/categoria&gt;&lt;/libro&gt;
+  &lt;/listaLibros&gt;
+&lt;/config&gt;</pre></article></section>
+  <section id="reportes" hidden><article><h2>Reportes gráficos</h2><label>Categoría para reportes filtrados<input id="categoriaReporte"></label><div class="acciones reportes"><button onclick="reporte('completo')">Jerarquía completa</button><button onclick="reporte('categoria')">Subcategoría</button><button onclick="reporte('libros')">Libros ordenados</button></div><div id="imagenReporte" class="lienzo">El reporte aparecerá aquí.</div></article></section>
+  <section id="ayuda" hidden><article><h2>Ayuda</h2><p>Proyecto 2 de Introducción a la Programación y Computación 2.</p><dl><dt>Estudiante</dt><dd>José Andrés Díaz Maldonado</dd><dt>Carné</dt><dd>202505653</dd><dt>Documentación</dt><dd><a href="/documentacion" target="_blank">Manual del proyecto</a> · <a href="https://graphviz.org/documentation/" target="_blank" rel="noopener">Documentación oficial del generador gráfico</a></dd></dl></article></section>
+</main>
+<div id="aviso" role="status"></div><script src="aplicacion.js"></script>
+</body></html>
